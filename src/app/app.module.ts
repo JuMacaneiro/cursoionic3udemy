@@ -1,3 +1,4 @@
+import { RegistrarPageModule } from './../pages/registrar/registrar.module';
 import { FeedPageModule } from './../pages/feed/feed.module';
 import { IntroPageModule } from './../pages/intro/intro.module';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -12,6 +13,8 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LoginPageModule } from '../pages/login/login.module';
+import { LoginProvider } from '../providers/login/login';
 
 @NgModule({
   declarations: [
@@ -25,7 +28,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     IntroPageModule,
-    FeedPageModule
+    FeedPageModule,
+    LoginPageModule,
+    RegistrarPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -38,7 +43,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginProvider
   ]
 })
 export class AppModule {}
