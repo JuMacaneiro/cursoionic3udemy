@@ -1,50 +1,64 @@
-import { RegistrarPageModule } from './../pages/registrar/registrar.module';
-import { FeedPageModule } from './../pages/feed/feed.module';
-import { IntroPageModule } from './../pages/intro/intro.module';
+import { HttpModule } from '@angular/http';
+import { RegistrarPage } from '../pages/registrar/registrar';
+import { LoginProvider } from './../providers/login/login';
+import { FeedPage } from './../pages/feed/feed';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { LoginPageModule } from '../pages/login/login.module';
-import { LoginProvider } from '../providers/login/login';
+import { IntroPage } from '../pages/intro/intro';
+import { LoginPage } from '../pages/login/login';
+import firebase from 'firebase';
+const firebaseConfig = {
+  apiKey: "AIzaSyC2vagUlvhp8tzDPFbY7AWfpCAq1NPRvhA",
+  authDomain: "cursoionic2-e3bc7.firebaseapp.com",
+  databaseURL: "https://cursoionic2-e3bc7.firebaseio.com",
+  projectId: "cursoionic2-e3bc7",
+  storageBucket: "cursoionic2-e3bc7.appspot.com",
+  messagingSenderId: "961585959863"
+};
 
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
+    IntroPage,
+    LoginPage,
+    FeedPage,
     HomePage,
-    TabsPage
+     RegistrarPage
+
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp),
-    IntroPageModule,
-    FeedPageModule,
-    LoginPageModule,
-    RegistrarPageModule
+
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
-    ContactPage,
+     MyApp,
+    IntroPage,
+    LoginPage,
+    FeedPage,
     HomePage,
-    TabsPage
+    RegistrarPage
   ],
   providers: [
-    StatusBar,
+    LoginProvider,
+   StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    LoginProvider
+
+
   ]
 })
-export class AppModule {}
+export class AppModule {
+ constructor(){
+
+ firebase.initializeApp(firebaseConfig);
+}
+}

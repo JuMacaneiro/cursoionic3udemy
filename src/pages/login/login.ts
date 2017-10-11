@@ -4,8 +4,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 
-
-@IonicPage()
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
