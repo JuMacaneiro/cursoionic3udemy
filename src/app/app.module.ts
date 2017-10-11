@@ -13,6 +13,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { IntroPage } from '../pages/intro/intro';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
+
 const firebaseConfig = {
   apiKey: "AIzaSyC2vagUlvhp8tzDPFbY7AWfpCAq1NPRvhA",
   authDomain: "cursoionic2-e3bc7.firebaseapp.com",

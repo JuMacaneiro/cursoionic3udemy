@@ -19,8 +19,7 @@
                 <ion-label floating>
                   Email
                 </ion-label>
-                <ion-input name="email" required>
-                </ion-input>
+                <ion-input name="email"  required  [(ngModel)]="credencial.email"></ion-input>
               </ion-item>
             </ion-col>
           </ion-row>
@@ -31,7 +30,7 @@
                 <ion-label floating>
                   Senha
                 </ion-label>
-                <ion-input name="password" #senha required type="password">
+                <ion-input name="senha" #senha required type="password" [(ngModel)]="credencial.senha">
                 </ion-input>
               </ion-item>
             </ion-col>
@@ -39,7 +38,8 @@
 
           <ion-row>
             <ion-col>
-              <a> Registrar-se</a>
+              <button ion-button clear full (click)="doRegister()">Registrar</button>
+
             </ion-col>
           </ion-row>
         </ion-grid>
