@@ -1,5 +1,5 @@
+import { LoginProvider } from './../../providers/login/login';
 import { Credencial } from './../../model/credencial';
-import { LoginProvider } from '../../providers/login/login';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 

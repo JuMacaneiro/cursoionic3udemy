@@ -15,13 +15,14 @@ import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAvNmUeN22C-hUqMhByZABsSnnxvtrP7Mo",
-  authDomain: "teste2-1ac20.firebaseapp.com",
-  databaseURL: "https://teste2-1ac20.firebaseio.com",
-  projectId: "teste2-1ac20",
-  storageBucket: "teste2-1ac20.appspot.com",
-  messagingSenderId: "93788253873"
+  apiKey: "AIzaSyC2vagUlvhp8tzDPFbY7AWfpCAq1NPRvhA",
+  authDomain: "cursoionic2-e3bc7.firebaseapp.com",
+  databaseURL: "https://cursoionic2-e3bc7.firebaseio.com",
+  projectId: "cursoionic2-e3bc7",
+  storageBucket: "cursoionic2-e3bc7.appspot.com",
+  messagingSenderId: "961585959863"
 };
+
 @NgModule({
   declarations: [
     MyApp,
@@ -35,8 +36,7 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp)
-
+    IonicModule.forRoot(MyApp),
 
   ],
   bootstrap: [IonicApp],
@@ -55,12 +55,11 @@ const firebaseConfig = {
     {provide: ErrorHandler, useClass: IonicErrorHandler},
 
 
-
   ]
 })
 export class AppModule {
  constructor(){
 
-  firebase.initializeApp(firebaseConfig );
+ firebase.initializeApp(firebaseConfig);
 }
 }
