@@ -5,6 +5,7 @@ import { RegistrarPage } from "./../registrar/registrar";
 import { Component } from "@angular/core";
 import { IonicPage, NavController, NavParams } from "ionic-angular";
 import firebase from 'firebase';
+import { FeedPage } from '../feed/feed';
 
 
 @Component({
@@ -25,7 +26,7 @@ credencial: Credencial;
   ionViewDidLoad() {
     this.credencial = new Credencial();
     this.LoginProvider.loginSucessoEventEmitter.subscribe(
-      user => console.log(user)
+      user => this.navCtrl.setRoot(FeedPage)
     )
     this.LoginProvider.loginFalhaEventEmitter.subscribe(error =>
       console.log(error)
