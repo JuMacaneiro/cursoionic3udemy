@@ -25,12 +25,16 @@ credencial: Credencial;
   ionViewDidLoad() {
     this.credencial = new Credencial();
     this.LoginProvider.loginSucessoEventEmitter.subscribe(
-      user =>console.log(user)
+      user => console.log(user)
     )
     this.LoginProvider.loginFalhaEventEmitter.subscribe(error =>
       console.log(error)
     )
   }
+  loginComFacebook(){
+this.LoginProvider.loginComFacebook();
+  }
+
   loginComCredencial(){
     this.LoginProvider.loginComCredencial(this.credencial);
   }

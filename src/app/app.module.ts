@@ -15,12 +15,12 @@ import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyChW94jn1yk_FY7xMtfSL_lHJxqEhz5Lks",
-  authDomain: "maisumteste-7e57f.firebaseapp.com",
-  databaseURL: "https://maisumteste-7e57f.firebaseio.com",
-  projectId: "maisumteste-7e57f",
-  storageBucket: "",
-  messagingSenderId: "765620802642"
+  apiKey: "AIzaSyAvNmUeN22C-hUqMhByZABsSnnxvtrP7Mo",
+  authDomain: "teste2-1ac20.firebaseapp.com",
+  databaseURL: "https://teste2-1ac20.firebaseio.com",
+  projectId: "teste2-1ac20",
+  storageBucket: "teste2-1ac20.appspot.com",
+  messagingSenderId: "93788253873"
 };
 @NgModule({
   declarations: [
