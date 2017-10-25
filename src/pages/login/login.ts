@@ -1,3 +1,4 @@
+import { TarefasListPage } from './../tarefas-list/tarefas-list';
 import { LoginProvider } from './../../providers/login/login';
 import { Credencial } from './../../model/credencial';
 
@@ -26,7 +27,7 @@ credencial: Credencial;
   ionViewDidLoad() {
     this.credencial = new Credencial();
     this.LoginProvider.loginSucessoEventEmitter.subscribe(
-      user => this.navCtrl.setRoot(FeedPage)
+      user => this.navCtrl.setRoot(TarefasListPage)
     )
     this.LoginProvider.loginFalhaEventEmitter.subscribe(error =>
       console.log(error)
