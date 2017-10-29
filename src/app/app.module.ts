@@ -17,6 +17,7 @@ import { IntroPage } from '../pages/intro/intro';
 import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { TarefaProvider } from '../providers/tarefa/tarefa';
+import { LovProvider } from '../providers/lov/lov';
 
 
 const firebaseConfig = {
@@ -68,6 +69,7 @@ const firebaseConfig = {
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TarefaProvider,
+    LovProvider
 
 
 

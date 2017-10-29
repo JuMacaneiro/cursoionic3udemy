@@ -13,12 +13,12 @@
   <ion-list [virtualScroll]="tarefas">
     <button ion-item *virtualItem="let tarefa">
 
-  <!--  <tarefa-list-item[tarefa]="tarefa"></tarefa-list-item> -->
+  <tarefa-list-item [tarefa]="tarefa"></tarefa-list-item>
   </button>
   </ion-list>
 
 <ion-fab bottom right>
-  <button ion-fab color='primary'>
+  <button ion-fab color='primary'(click)="adicionarTarefa()">
     <ion-icon name='add'></ion-icon>
   </button>
 </ion-fab>

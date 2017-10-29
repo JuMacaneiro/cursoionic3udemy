@@ -1,12 +1,8 @@
+import { LovProvider } from './../../providers/lov/lov';
+import { Tarefa } from './../../model/tarefas';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TarefasAddPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -15,11 +11,26 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TarefasAddPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+
+  tarefa: Tarefa;
+
+ 
+
+  constructor(public navCtrl: NavController,
+    public navParams: NavParams,
+  public LovProvider: LovProvider) { 
+   
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TarefasAddPage');
+    this.tarefa = this.navParams.get('tarefa');
+    if(!this.tarefa){
+  this.tarefa = new Tarefa();
+
+    }
+ 
   }
 
 }
+  

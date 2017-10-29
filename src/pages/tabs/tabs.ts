@@ -1,3 +1,6 @@
+import { TarefasAddPage } from './../tarefas-add/tarefas-add';
+import { TarefasListPage } from './../tarefas-list/tarefas-list';
+import { TarefaListItemComponent } from './../../components/tarefa-list-item/tarefa-list-item';
 import { RegistrarPage } from './../registrar/registrar';
 
 import { LoginPage } from './../login/login';
@@ -18,6 +21,9 @@ export class TabsPage {
   tab3Root = LoginPage;
   tabs4Root = RegistrarPage;
    tab5Root = HomePage;
+   tab6Root = TarefaListItemComponent;
+   tab7Root = TarefasListPage;
+   tab8Root = TarefasAddPage;
 
   constructor() {
 
