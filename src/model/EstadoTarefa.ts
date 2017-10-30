@@ -1,6 +1,6 @@
 export enum EstadoTarefa {
-  nova,
-  executando,
-  finalizada
+  NOVA,
+  EXECUTANDO,
+  FINALIZADA
 
 }

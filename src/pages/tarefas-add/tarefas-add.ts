@@ -1,8 +1,11 @@
-import { LovProvider } from './../../providers/lov/lov';
-import { Tarefa } from './../../model/tarefas';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { IonicPage, NavController, NavParams, ViewController, ToastController } from 'ionic-angular';
+import { LovProvider } from '../../providers/lov/lov';
+import { TarefaProvider } from '../../providers/tarefa/tarefa';
+import { LoginPage } from '../login/login';
+import { Tarefa } from "../../model/tarefas";
+import { EstadoTarefa } from '../../model/EstadoTarefa';
 
 @IonicPage()
 @Component({
@@ -11,26 +14,42 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TarefasAddPage {
 
-
-
   tarefa: Tarefa;
+  tarefaForm: FormGroup;
 
- 
-
-  constructor(public navCtrl: NavController,
-    public navParams: NavParams,
-  public LovProvider: LovProvider) { 
-   
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tarefasProvider: TarefaProvider,
+  public viewCtrl: ViewController, public fb: FormBuilder, public lovProvider: LovProvider, public toastCtrl: ToastController,) {
+    this.initialize();
   }
 
-  ionViewDidLoad() {
+  private initialize(){
     this.tarefa = this.navParams.get('tarefa');
     if(!this.tarefa){
-  this.tarefa = new Tarefa();
-
+      this.tarefa = new Tarefa();
     }
- 
+
+    this.tarefaForm = this.fb.group({
+      'titulo': ['',Validators.compose([Validators.required, Validators.minLength(5)])],
+      'descricao': [''],
+      'estadoTarefa': ['',Validators.required]
+    });
   }
 
+  getEstadoValue(estadoTarefa: EstadoTarefa):string{
+    return EstadoTarefa[estadoTarefa];
+  }
+
+  salvarTarefa(){
+    this.tarefasProvider.save(this.tarefa);
+    this.toastCtrl.create({
+      message: 'Tarefa '+this.tarefa.titulo+' adicionada com sucesso!',
+      duration: 3000
+    }).present();
+
+    this.viewCtrl.dismiss();
+  }
+
+  logout(){
+    this.navCtrl.push(LoginPage);
+  }
 }
-  

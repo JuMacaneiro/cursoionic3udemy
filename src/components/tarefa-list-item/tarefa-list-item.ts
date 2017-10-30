@@ -8,7 +8,6 @@ import { Tarefa } from '../../model/tarefas';
   templateUrl: 'tarefa-list-item.html'
 })
 export class TarefaListItemComponent {
-
-@Input()
-tarefa:Tarefa;
+  @Input()
+  tarefa: Tarefa;
 }

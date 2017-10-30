@@ -1,8 +1,11 @@
-import { TarefasAddPage } from './../tarefas-add/tarefas-add';
-import { TarefaProvider } from './../../providers/tarefa/tarefa';
 import { Tarefa } from './../../model/tarefas';
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, NgZone } from '@angular/core';
+import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
+
+import { TarefaProvider } from '../../providers/tarefa/tarefa';
+import { TarefasAddPage } from '../tarefas-add/tarefas-add';
+import { LoginPage } from '../login/login';
+
 
 
 @IonicPage()
@@ -12,15 +15,70 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class TarefasListPage {
 
-  tarefas:Array<Tarefa>;
+  tarefas: Array<Tarefa>;
 
-  constructor(public navCtrl: NavController,
-               public tarefaProvider: TarefaProvider) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public tarefaProvider: TarefaProvider,
+              public toastCtrl: ToastController,
+              public ngZone: NgZone, public alertCtrl: AlertController) {
+  }
 
   ionViewDidLoad() {
-    this.tarefas = this.tarefaProvider.getAll();
+    /*
+     * value - Escuta todas as alterações da referencia
+     * child_added - Ouvinte para quando um filtlo for adicionado
+     * child_changed - Ouvinte para quando algum filtlo for alterado
+     * child_removed - Ouvinte para quando algum filho for deletado
+     * child_moved - Ouvinte para ouvir as mudanças na prioridade de um filho
+     */
+    this.tarefaProvider.reference.on('child_removed', (snapshot) => {
+      let tarefaRemovida = snapshot.val();
+      this.toastCtrl.create({
+        message: 'Tarefa '+tarefaRemovida.titulo+' foi removida!',
+        duration: 3000
+      }).present();
+    })
+
+    this.tarefaProvider.reference.on('value', (snapshot) => {
+      this.ngZone.run( () => {
+        let innerArray = new Array();
+        snapshot.forEach(elemento => {
+          let el = elemento.val();
+          innerArray.push(el);
+        })
+        this.tarefas = innerArray;
+      })
+    })
   }
-adicionarTarefa() {
-  this.navCtrl.push(TarefasAddPage,{'tarefa' : new Tarefa()});
-}
+
+  atualizarTarefa(tarefa:Tarefa){
+    this.navCtrl.push(TarefasAddPage,{'tarefa' : tarefa});
+  }
+
+  adicionarTarefa(){
+    this.navCtrl.push(TarefasAddPage,{'tarefa' : new Tarefa()});
+  }
+
+deletarTarefa(tarefa: Tarefa) {
+    let confirm = this.alertCtrl.create({
+      title: 'Deseja realmente excluir a tarefa?',
+      message: '',
+      buttons: [
+        { text: 'Sim',
+          handler: () => {
+            this.tarefaProvider.deletar(tarefa);
+          }
+        },
+        { text: 'Não',
+          handler: () => { }
+        }
+      ]
+    });
+    confirm.present();
+  }
+
+
+
+  logout(){
+    this.navCtrl.push(LoginPage);
+  }
 }
