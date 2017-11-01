@@ -1,3 +1,4 @@
+import { CameraPage } from './../camera/camera';
 import { TarefasAddPage } from './../tarefas-add/tarefas-add';
 import { TarefasListPage } from './../tarefas-list/tarefas-list';
 import { TarefaListItemComponent } from './../../components/tarefa-list-item/tarefa-list-item';
@@ -24,6 +25,7 @@ export class TabsPage {
    tab6Root = TarefaListItemComponent;
    tab7Root = TarefasListPage;
    tab8Root = TarefasAddPage;
+   tab9Root = CameraPage;
 
   constructor() {
 

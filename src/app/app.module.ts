@@ -1,3 +1,4 @@
+import { CameraPage } from './../pages/camera/camera';
 import { TarefasListPage } from '../pages/tarefas-list/tarefas-list';
 import { TarefasAddPage } from './../pages/tarefas-add/tarefas-add';
 import { TarefaListItemComponent } from './../components/tarefa-list-item/tarefa-list-item';
@@ -18,6 +19,7 @@ import { LoginPage } from '../pages/login/login';
 import firebase from 'firebase';
 import { TarefaProvider } from '../providers/tarefa/tarefa';
 import { LovProvider } from '../providers/lov/lov';
+import { Camera } from '@ionic-native/camera';
 
 
 const firebaseConfig = {
@@ -39,7 +41,8 @@ const firebaseConfig = {
    RegistrarPage,
    TarefaListItemComponent,
    TarefasAddPage,
-   TarefasListPage
+   TarefasListPage,
+   CameraPage
 
 
   ],
@@ -61,12 +64,14 @@ const firebaseConfig = {
     RegistrarPage,
     TarefaListItemComponent,
     TarefasAddPage,
-    TarefasListPage
+    TarefasListPage,
+    CameraPage
   ],
   providers: [
     LoginProvider,
    StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TarefaProvider,
     LovProvider
