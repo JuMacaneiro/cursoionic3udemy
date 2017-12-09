@@ -1,10 +1,9 @@
-import { JQueryStyleEventEmitter } from "rxjs/observable/FromEventObservable";
+
 import { Credencial } from "./../../model/credencial";
-import { Usuario } from "./../../model/usuario";
-import { EventEmitter, Injectable, NgZone } from "@angular/core";
 import { Http } from "@angular/http";
 import "rxjs/add/operator/map";
 import firebase from "firebase";
+import { EventEmitter, Injectable, NgZone } from "@angular/core";
 
 @Injectable()
 export class LoginProvider {

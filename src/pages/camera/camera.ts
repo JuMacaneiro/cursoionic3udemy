@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController } from 'ionic-angular';
 import { CameraOptions } from '@ionic-native/camera';
 import { Camera } from '@ionic-native/camera';
 
@@ -62,6 +62,7 @@ export class CameraPage {
     });
     confirm.present();
   }
+  
   }
    
   

@@ -20,10 +20,8 @@ export class TabsPage {
   tab1Root = IntroPage;
   tab2Root = FeedPage;
   tab3Root = LoginPage;
-  tabs4Root = RegistrarPage;
    tab5Root = HomePage;
-   tab6Root = TarefaListItemComponent;
-   tab7Root = TarefasListPage;
+    tab7Root = TarefasListPage;
    tab8Root = TarefasAddPage;
    tab9Root = CameraPage;
 

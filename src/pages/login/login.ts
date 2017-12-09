@@ -1,12 +1,10 @@
 import { TarefasListPage } from './../tarefas-list/tarefas-list';
 import { LoginProvider } from './../../providers/login/login';
 import { Credencial } from './../../model/credencial';
-
 import { RegistrarPage } from "./../registrar/registrar";
 import { Component } from "@angular/core";
-import { IonicPage, NavController, NavParams } from "ionic-angular";
-import firebase from 'firebase';
-import { FeedPage } from '../feed/feed';
+import { NavController } from "ionic-angular";
+
 
 
 @Component({
